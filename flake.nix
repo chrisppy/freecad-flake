@@ -11,12 +11,7 @@
 
   outputs =
     inputs:
-    inputs.devfmt.inputs.flake-parts.lib.mkFlake { inherit inputs; } {
-      systems = import inputs.devfmt.inputs.systems;
-
-      imports = [
-        inputs.devfmt.flakeModules.default
-      ];
+    inputs.devfmt.lib.mkFlake { inherit inputs; } {
       flake.flakeModules.default = ./modules/freecad.nix;
 
       perSystem =
