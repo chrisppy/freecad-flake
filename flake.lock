@@ -12,11 +12,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1795320967,
-        "narHash": "sha256-CLpS1/sbbHmKVB8rsLfLowA8E7kfRj7LzEbj/umQQRE=",
+        "lastModified": 1795381776,
+        "narHash": "sha256-lLaJE0C9cfbEtmSlxQXaGdqLmVRPIgUOYEl2AGct5hU=",
         "owner": "red-oxide",
         "repo": "devfmt",
-        "rev": "16fc79a0b2629155aeeb966456b598abfa495885",
+        "rev": "e17e47abb896068edbc8b4aa274a230ca614b406",
         "type": "github"
       },
       "original": {
@@ -48,16 +48,16 @@
     },
     "import-tree": {
       "locked": {
-        "lastModified": 1778781969,
-        "narHash": "sha256-Jjuz5CmSkur8KvLDoGa+vylEp+RkQtv4mt/qcMznpH0=",
+        "lastModified": 1788467110,
+        "narHash": "sha256-ljEMTXP/rH0tOvDzc9gzwww6KcHRPRnEHzd9lK48V7s=",
         "owner": "denful",
         "repo": "import-tree",
-        "rev": "d321337efd0f23a9eb14a42adb7b2c29313ab274",
+        "rev": "eb1b52eaecc57f7c136d07ae8a93e724dfecac46",
         "type": "github"
       },
       "original": {
         "owner": "denful",
-        "ref": "v0.2.0",
+        "ref": "v0.3.0",
         "repo": "import-tree",
         "type": "github"
       }
