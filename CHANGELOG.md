@@ -8,6 +8,14 @@ Unreleased. Routine flake input updates and formatting commits are left out.
 
 ## Unreleased
 
+### 2026-11-25
+
+#### Fixed
+
+- SheetMetal and Fasteners plugins pinned to commits instead of upstream's
+  moving `Last`/`last` tags, which broke their hashes whenever upstream
+  released.
+
 ### 2026-11-07
 
 #### Added
