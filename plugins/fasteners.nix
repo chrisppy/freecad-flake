@@ -4,5 +4,5 @@ fetchFromGitHub {
   owner = "shaise";
   repo = "FreeCAD_FastenersWB";
   rev = "last";
-  hash = "sha256-mYg8M1APYtleQVgnVvGtpRQ/z90RvGK2v+FkHEBFfj0=";
+  hash = "sha256-j/AyL+dgYUy3pa0Hw8dKns/htLk6AAmY3Q8Hh7qryz4=";
 }
