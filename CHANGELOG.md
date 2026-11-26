@@ -8,6 +8,18 @@ Unreleased. Routine flake input updates and formatting commits are left out.
 
 ## Unreleased
 
+### 2026-11-26
+
+#### Added
+
+- Daily `update-plugins` workflow that opens a PR when SheetMetal's or
+  Fasteners' upstream release tag moves.
+
+#### Changed
+
+- SheetMetal and Fasteners are pinned to commits instead of upstream's moving
+  `Last`/`last` tags, whose hashes broke on every upstream release.
+
 ### 2026-11-07
 
 #### Added
