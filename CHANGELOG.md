@@ -8,6 +8,23 @@ Unreleased. Routine flake input updates and formatting commits are left out.
 
 ## Unreleased
 
+### 2026-11-27
+
+#### Changed
+
+- Inputs are pinned with [tack](https://github.com/manic-systems/tack) in
+  `.tack/` instead of flake inputs; `flake.lock` is gone. Consumers should drop
+  any `freecad-flake.inputs.*.follows`.
+- Plugins are tack pins in the `plugins` group of `.tack/pins.toml` instead of
+  `plugins/*.nix`, and follow upstream's versioned release tags
+  (`V{version}-beta`, `v{version}`) instead of the moving `Last`/`last` tags.
+- One daily `update-pins` workflow runs `tack update` and replaces both the
+  `update-flake-lock` and `update-plugins` workflows.
+
+#### Removed
+
+- `plugins/*.nix` and `scripts/update-plugins.sh`.
+
 ### 2026-11-26
 
 #### Added
