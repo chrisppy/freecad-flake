@@ -14,25 +14,15 @@ let
     ;
   cfg = config.programs.freecad;
 
-  # Relative path to our upstream plugins directory
-  pluginsDirPath = ../plugins;
-
-  # 1. Read files in our internal plugins folder
-  pluginFolderContents = builtins.readDir pluginsDirPath;
-
-  # 2. Filter out anything that isn't a '.nix' file layout
-  pluginNixFiles = lib.filterAttrs (
-    name: type: (type == "regular" || type == "symlink") && (lib.hasSuffix ".nix" name)
-  ) pluginFolderContents;
-
-  # 3. Clean names (e.g., "sheet-metal.nix" -> "sheet-metal")
-  pluginNames = map (name: lib.removeSuffix ".nix" name) (builtins.attrNames pluginNixFiles);
-
-  # 4. Programmatically callPackage on each file to produce an attrset of derivations
-  # Result shape: { fasteners = <pkg>; history = <pkg>; "sheet-metal" = <pkg>; }
-  availablePlugins = lib.genAttrs pluginNames (
-    name: pkgs.callPackage (pluginsDirPath + "/${name}.nix") { }
+  # Plugins are the tack pins in the `plugins` group of ../.tack/pins.toml.
+  # Pins are fetched lazily, so only enabled plugins are downloaded.
+  pins = import ../.tack;
+  pluginNames = builtins.attrNames (
+    lib.filterAttrs (_name: meta: meta.group or null == "plugins") pins._meta
   );
+
+  # Result shape: { fasteners = <source>; history = <source>; "sheet-metal" = <source>; }
+  availablePlugins = lib.genAttrs pluginNames (name: pins.${name});
 in
 {
   options.programs.freecad = {

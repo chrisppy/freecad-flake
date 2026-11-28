@@ -11,7 +11,7 @@ Import the module directly into your NixOS system configuration:
   programs.freecad = {
     enable = true;
 
-    # Dynamically toggled workbench plugins discovered from ../plugins/*.nix
+    # Workbench plugins: the `plugins` group in .tack/pins.toml
     plugins = {
       fasteners = true;
       sheet-metal = true;
@@ -35,7 +35,7 @@ Import the module directly into your NixOS system configuration:
 | Option | Type | Default | Description |
 | ----------------------------------- | ------------------- | ------------- | --------------------------------------------------------------------------------------------------- |
 | `programs.freecad.enable` | boolean | `false` | Enable customized FreeCAD installation wrapper. |
-| `programs.freecad.plugins.<name>` | boolean | `false` | Enable custom upstream plugin workbench (dynamically generated for each `.nix` file in `plugins/`). |
+| `programs.freecad.plugins.<name>` | boolean | `false` | Enable custom upstream plugin workbench (generated for each pin in the `plugins` group of `.tack/pins.toml`). |
 | `programs.freecad.userCfg` | null or path | `null` | Path to a baseline `user.cfg` XML template file injected via launcher wrapper. |
 | `programs.freecad.systemCfg` | null or path | `null` | Path to a global `system.cfg` XML template file injected via launcher wrapper. |
 | `programs.freecad.pythons` | list of unspecified | `null` | Python extensions package mappings passed directly to `pkgs.freecad.customize`. |

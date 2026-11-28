@@ -1,5 +1,8 @@
 set dotenv-load := false
 
+# tack pins every input (.tack/pins.toml); nixpkgs only packages tack 1.0.x
+tack := "nix run github:manic-systems/tack/v2.0.0 --"
+
 # List available recipes
 default:
     @just --list
@@ -28,13 +31,21 @@ fmt-check:
 show:
     nix flake show
 
-# Update all flake inputs
+# Update every tack pin (nixpkgs, devfmt and the plugins)
 update:
-    nix flake update
+    {{ tack }} update
 
-# Update a specific flake input
-update-input input:
-    nix flake update {{ input }}
+# Update specific pins or groups, e.g. `just update-input plugins`
+update-input +inputs:
+    {{ tack }} update {{ inputs }}
+
+# Show which pins have newer upstream revisions or tags
+look:
+    {{ tack }} look
+
+# Run any other tack command
+tack *args:
+    {{ tack }} {{ args }}
 
 # Check formatting and the flake
 verify: fmt-check check

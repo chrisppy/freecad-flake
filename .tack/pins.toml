@@ -1,0 +1,28 @@
+# tack pins. `tack update` relocks pins.lock.json; nix only reads the lock.
+# https://github.com/manic-systems/tack
+
+[inputs.nixpkgs]
+url = "github:NixOS/nixpkgs/nixos-unstable"
+
+[inputs.devfmt]
+follows = { nixpkgs = "nixpkgs" }
+url     = "github:red-oxide/devfmt"
+
+# FreeCAD workbenches. Every pin in the `plugins` group becomes a
+# programs.freecad.plugins.<name> option (see modules/freecad.nix).
+# Each one follows upstream's newest versioned release tag.
+
+[inputs.plugins.fasteners]
+tag  = "V{version}-beta"
+type = "fetch"
+url  = "github:shaise/FreeCAD_FastenersWB"
+
+[inputs.plugins.history]
+tag  = "v{version}"
+type = "fetch"
+url  = "github:eblanshey/HistoryWorkbench"
+
+[inputs.plugins.sheet-metal]
+tag  = "V{version}-beta"
+type = "fetch"
+url  = "github:shaise/FreeCAD_SheetMetal"
